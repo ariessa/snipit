@@ -10,4 +10,9 @@ class Link < ApplicationRecord
     def to_param
         ShortCode.encode(id)
     end
+
+    def domain
+        URI(url).host
+    rescue URI::InvalidURIError
+    end
 end
