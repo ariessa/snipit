@@ -12,7 +12,6 @@ class Link < ApplicationRecord
     end
 
     def domain
-        URI(url).host
-    rescue URI::InvalidURIError
+        URI(url).host rescue URI::InvalidURIError
     end
 end
