@@ -15,10 +15,24 @@ snipIt is the ultimate tool for transforming those long, clunky URLs into short,
   - [Run the application](#run-the-application)
   - [Run the tests](#run-the-tests)
 - [Diagrams](#diagrams)
+  - [Arhictecture Diagram](#architecture-diagram)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [Low Fidelity Wireframes](#low-fidelity-wireframes)
 
 <br />
+
+## TODO: Technologies Used
+
+- Ruby
+- Rails
+- Bundler
+- Nginx
+- Certbot
+- Docker
+- Vultr
+- Excalidraw
+- Draw.io
+- Heroicons
 
 ## TODO: User Interfaces
 
@@ -43,6 +57,8 @@ TODO: Simplify app, use only a single page
     - Multiple Short URLs can share the same Target URL (done)
     - TODO: Can get usage report for the application such as the number of clicks, originating geolocation and timestamp of each visit to a Short URL
 - About page
+
+<br />
 
 ## Installation
 
@@ -109,6 +125,14 @@ Sample output
 <br />
 
 ### Diagrams
+
+<br />
+
+#### Architecture Diagram
+
+<img src=""/>
+
+<br />
 
 #### Entity Relationship Diagram
 
