@@ -4,6 +4,8 @@ snipIt is the ultimate tool for transforming those long, clunky URLs into short,
 
 <br />
 
+cp env_file.env env.example
+
 ## Table of Contents
 
 - [User Interfaces](#user-interfaces)
@@ -130,7 +132,7 @@ Sample output
 
 #### Architecture Diagram
 
-<img src=""/>
+<img src="/diagrams/architecture_diagram.png"/>
 
 <br />
 
