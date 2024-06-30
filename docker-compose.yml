@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    restart: always
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    env_file:
+      - .env
+
+  web:
+    build: .
+    command: bundle exec rails s -b '0.0.0.0' -p 3000
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_started
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    env_file:
+      - .env
+
+volumes:
+  db:
