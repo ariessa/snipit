@@ -12,10 +12,16 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag asset_path('logo.ico') %>
+    <style>
+        /* Hide the mobile menu by default */
+        #mobile-menu {
+            display: none;
+        }
+    </style>
   </head>
 
   <body class="flex flex-col h-screen">
-    <header class="sticky top-0 z-50 bg-white border-b-2 border-black">
+    <header class="sticky top-0 z-50 bg-white border-b-2 border-black" data-controller="menu">
       <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <a href="/" class="-m-1.5 p-1.5 flex items-center justify-center">
           <span class="sr-only">snipIt</span>
@@ -23,7 +29,7 @@
           <%= content_tag(:p, "snipIt", class: "font-semibold px-2") %>
         </a>
         <div class="flex lg:hidden">
-          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <button id="open-menu-button" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" data-action="click->menu#openMenu">
             <span class="sr-only">Open main menu</span>
             <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -32,11 +38,11 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
           <a href="/about" class="text-sm font-semibold leading-6 text-gray-900">about</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">stats</a>
+          <a href="/stats" class="text-sm font-semibold leading-6 text-gray-900">stats</a>
         </div>
       </nav>
       <!-- Mobile menu, show/hide based on menu open state. -->
-      <div class="lg:hidden" role="dialog" aria-modal="true">
+      <div id="mobile-menu" class="lg:hidden" role="dialog" aria-modal="true" data-menu-target="menu">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-10"></div>
         <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -46,7 +52,7 @@
               <%= image_tag("logo.svg", alt: "snipIt's logo", class: "h-6 w-6") %>
               <%= content_tag(:p, "snipIt", class: "font-semibold px-2") %>
             </a>
-            <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <button id="close-menu-button" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" data-action="click->menu#closeMenu">
               <span class="sr-only">Close menu</span>
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -57,7 +63,7 @@
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
                 <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">about</a>
-                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">stats</a>
+                <a href="/stats" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">stats</a>
               </div>
             </div>
           </div>
