@@ -39,3 +39,6 @@
 
 # Ignore .DS_Store
 .DS_Store
+
+# Ignore postgres folder
+postgres/
