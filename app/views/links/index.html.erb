@@ -1,8 +1,9 @@
-<h1>snip. snap. share.</h1>
+<div class="w-full items-center">
+  <h1 class="w-full text-center">snip. snap. share.</h1>
 
-<%= render partial: "form", locals: {link: @link} %>
+  <%= render partial: "form", locals: {link: @link} %>
 
-<div id="links" class="mt-8 flex flex-col divide-y divide-gray-100">
-  <%= render @links %>
+  <div id="links" class="mt-8 flex flex-col">
+    <%= render @links %>
+  </div>
 </div>
-

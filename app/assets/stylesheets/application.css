@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.prose p {
+  /* Your styling for paragraphs */
+  margin-bottom: 0;
+  margin-top: 0;
+}

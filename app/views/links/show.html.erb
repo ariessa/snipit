@@ -1,16 +1,16 @@
 <div class="flex justify-between items-center text-xs">
-    <%= link_to "← Back to all links", root_path, class: "no-underline text-xs px-3 py-2 rounded bg-gray-100" %>
+    <%= link_to "← Back to all links", root_path, class: "no-underline text-xs px-3 py-2 border-2 border-black hover:bg-indigo-600 hover:text-white" %>
     <div class="flex items-center gap-4">
         <%= tag.div pluralize(@link.views_count, "view") %>
-        <%= button_tag "Copy", class: "font-medium px-2 py-1.5 rounded bg-gray-100 no-underline", data: {controller: "clipboard", clipboard_text: view_url(@link)} %>
-        <%= link_to "Edit", edit_link_path(@link), class: "px-2 py-1.5 rounded bg-gray-100 no-underline" %>
+        <%= button_tag "Copy", class: "font-medium px-2 py-1.5 border-2 border-black no-underline hover:bg-indigo-600 hover:text-white", data: {controller: "clipboard", clipboard_text: view_url(@link)} %>
+        <%= link_to "Edit", edit_link_path(@link), class: "px-2 py-1.5 border-2 border-black no-underline hover:bg-indigo-600 hover:text-white" %>
     </div>
 </div>
 
-<h1 class="mt-4"><%= @link.url %></h1>
+<h1 class="mt-4"><%= @link.title %></h1>
 <%= tag.div @link.description %>
 
-<%= link_to view_path(@link), target: :_blank, data: {turbo: false}, class: "text-xs px-2 py-1.5 rounded bg-gray-100 no-underline" do %>
+<%= link_to view_path(@link), target: :_blank, data: {turbo: false}, class: "text-xs px-2 py-1.5 border-2 border-black no-underline hover:bg-indigo-600 hover:text-white" do %>
     <%= favicon_image_tag @link.domain, class: "inline-block" %>
     <%= truncate @link.url %>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4 inline-block">
@@ -18,5 +18,4 @@
     </svg>
 <% end %>
 
-<%= line_chart @link.views.group_by_day(:created_at, range: 2.weeks.ago..Time.now, expand_range: true).count %>
-
+<%= line_chart @link.views.group_by_day(:created_at, range: 2.weeks.ago..Time.now, expand_range: true).count, colors: ["#4f46e5"] %>

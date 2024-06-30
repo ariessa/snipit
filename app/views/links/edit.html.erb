@@ -3,7 +3,7 @@
 <%= render partial: "form", locals: {link: @link} %>
 
 <div class="flex mt-4 gap-1 items-center">
-    <%= link_to "Cancel", @link %>
+    <%= link_to "Cancel", @link, class: "hover:text-indigo-600" %>
     or
-    <%= button_to "Delete", @link, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    <%= button_to "Delete", @link, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "hover:text-indigo-600" %>
 </div>

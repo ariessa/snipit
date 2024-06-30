@@ -14,7 +14,7 @@ class LinksController < ApplicationController
         @link = Link.new(link_params)
         if @link.save
             respond_to do |format|
-                format.html { redirect_to root_path }
+                format.html { redirect_to link_path(@link)  }
                 format.turbo_stream { render turbo_stream: turbo_stream.prepend("links", @link) }
             end
         else
