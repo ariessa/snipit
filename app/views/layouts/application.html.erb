@@ -29,9 +29,9 @@
           <%= content_tag(:p, "snipIt", class: "font-semibold px-2") %>
         </a>
         <div class="flex lg:hidden">
-          <button id="open-menu-button" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" data-action="click->menu#openMenu">
+          <button id="open-menu-button" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-900 hover:text-indigo-600" data-action="click->menu#openMenu">
             <span class="sr-only">Open main menu</span>
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </button>
@@ -45,16 +45,16 @@
       <div id="mobile-menu" class="lg:hidden" role="dialog" aria-modal="true" data-menu-target="menu">
         <!-- Background backdrop, show/hide based on slide-over state. -->
         <div class="fixed inset-0 z-10"></div>
-        <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <div class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-indigo-900/10">
           <div class="flex items-center justify-between">
             <a href="/" class="-m-1.5 p-1.5 flex items-center justify-center">
               <span class="sr-only">snipIt</span>
               <%= image_tag("logo.svg", alt: "snipIt's logo", class: "h-6 w-6") %>
               <%= content_tag(:p, "snipIt", class: "font-semibold px-2") %>
             </a>
-            <button id="close-menu-button" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" data-action="click->menu#closeMenu">
+            <button id="close-menu-button" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-900 hover:text-indigo-600" data-action="click->menu#closeMenu">
               <span class="sr-only">Close menu</span>
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -78,11 +78,11 @@
     </main>
 
     <footer class="bg-white border-t-2 border-black py-6">
-      <div class="mx-auto max-w-7xl px-6 md:flex md:items-center md:justify-center lg:px-8 gap-x-2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="size-6">
+      <div class="mx-auto max-w-7xl px-6 flex items-center justify-center lg:px-8 gap-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" class="size-4 sm:size-6">
           <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
         </svg>
-        <p class="text-center font-semibold text-black">crafted with love, a snip, and a snap by <a href="https://github.com/ariessa" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-600">ariessa</a></p>
+        <p class="text-center font-semibold text-black text-xs sm:text-sm">crafted with love, a snip, and a snap by <a href="https://github.com/ariessa" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-600 text-xs sm:text-sm">ariessa</a></p>
       </div>
     </footer>
   </body>
