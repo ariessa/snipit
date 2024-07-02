@@ -16,6 +16,9 @@ services:
     env_file:
       - .env
 
+  redis:
+    image: redis
+
   app:
     build:
       context: .
@@ -27,6 +30,8 @@ services:
       - "3000:3000"
     depends_on:
       db:
+        condition: service_started
+      redis:
         condition: service_started
     environment:
       - DATABASE_URL=${DATABASE_URL}

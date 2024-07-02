@@ -4,7 +4,7 @@ class Link < ApplicationRecord
     validates :url, presence: true
 
     after_save_commit if: :url_previously_changed? do
-        MetadataJob.perform_later(to_param)
+        MetadataJob.perform_async(to_param)
     end 
 
     def self.find(id)
