@@ -36,7 +36,7 @@ cp env_file.env env.example
 - Draw.io
 - Heroicons
 
-## TODO: User Interfaces
+## User Interfaces
 
 Homepage
 <img src=""/>
@@ -98,9 +98,9 @@ Before starting, make sure you have the following installed:
 
 <br />
 
-### Usage
+## Usage
 
-#### Run the application
+### Run the application
 
 1. Start the Rails server
 
@@ -112,7 +112,7 @@ Before starting, make sure you have the following installed:
 
 <br />
 
-#### Run the tests
+### Run the tests
 
 ```bash
 
@@ -126,22 +126,22 @@ Sample output
 
 <br />
 
-### Diagrams
+## Diagrams
 
 <br />
 
-#### Architecture Diagram
+### Architecture Diagram
 
 <img src="/diagrams/architecture_diagram.png"/>
 
 <br />
 
-#### Entity Relationship Diagram
+### Entity Relationship Diagram
 
 <img src=""/>
 
 <br />
 
-#### Low Fidelity Wireframes
+### Low Fidelity Wireframes
 
 <img src=""/>
