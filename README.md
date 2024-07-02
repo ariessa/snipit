@@ -4,8 +4,6 @@ snipIt is the ultimate tool for transforming those long, clunky URLs into short,
 
 <br />
 
-cp env_file.env env.example
-
 ## Table of Contents
 
 - [User Interfaces](#user-interfaces)
@@ -23,7 +21,7 @@ cp env_file.env env.example
 
 <br />
 
-## TODO: Technologies Used
+## Technologies Used
 
 - Ruby
 - Rails
@@ -31,10 +29,13 @@ cp env_file.env env.example
 - Nginx
 - Certbot
 - Docker
-- Vultr
+- Docker Compose
+- Hostinger
 - Excalidraw
 - Draw.io
 - Heroicons
+- TailwindCSS
+- Make
 
 ## User Interfaces
 
@@ -50,14 +51,12 @@ About Page
 
 ## Features
 
-TODO: Simplify app, use only a single page
-
 - Homepage
-    - Convert long URL into short URL (done)
-    - Short URL can publicly shared and accessed (done)
-    - A Short URL path can be in any URI pattern, but should not exceed a maximum of 15 characters (done)
-    - Multiple Short URLs can share the same Target URL (done)
-    - TODO: Can get usage report for the application such as the number of clicks, originating geolocation and timestamp of each visit to a Short URL
+  - Convert long URL into short URL
+  - Short URL can publicly shared and accessed
+  - A Short URL path can be in any URI pattern, but should not exceed a maximum of 15 characters
+  - Multiple Short URLs can share the same Target URL
+  - Can get usage report for the application such as the number of clicks, originating geolocation and timestamp of each visit to a Short URL
 - About page
 
 <br />
@@ -68,47 +67,33 @@ TODO: Simplify app, use only a single page
 
 Before starting, make sure you have the following installed:
 
-- Ruby 3.1+
-- Rails 7.0+
-- Bundler (`gem install bundler`)
-- PostgreSQL
+- Docker
+- Docker Compose v2
+- Make
 
 <br />
 
 ### Setup
 
-1. Clone the repository
+Clone the repository
 
-   ```bash
-   git clone https://github.com/ariessa/snipIt.git
+```bash
+git clone https://github.com/ariessa/snipIt.git
 
-   cd snipIt
-   ```
-
-2. Install dependencies
-
-    ```bash
-    bundle install
-    ```
-3. Set up the database
-
-    ```bash
-    rails db:create db:migrate
-    ```
-
-<br />
+cd snipIt
+```
 
 ## Usage
 
 ### Run the application
 
-1. Start the Rails server
+Build and run the containers
 
-    ```bash
-    rails server
-    ```
+```bash
+make up
+```
 
-2. Open your web browser and navigate to `http://localhost:3000`.
+Open your web browser and navigate to `https://localhost:3000`.
 
 <br />
 
@@ -125,6 +110,12 @@ Sample output
 <img src=""/>
 
 <br />
+
+### Stop the application
+
+```bash
+make down
+```
 
 ## Diagrams
 
