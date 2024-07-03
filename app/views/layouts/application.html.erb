@@ -38,6 +38,13 @@
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
           <a href="/about" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:underline">about</a>
+          <% if user_signed_in? %>
+            <%= link_to "Profile", edit_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+            <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+            <%= link_to "Login", new_user_session_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+          <% end %>
           <%# <a href="/stats" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:underline">stats</a> %>
         </div>
       </nav>
@@ -63,6 +70,13 @@
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
                 <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">about</a>
+                    <% if user_signed_in? %>
+                      <%= link_to "Profile", edit_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+                      <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+                    <% else %>
+                      <%= link_to "Sign Up", new_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+                      <%= link_to "Login", new_user_session_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
+                    <% end %>
                 <%# <a href="/stats" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">stats</a> %>
               </div>
             </div>
