@@ -37,16 +37,17 @@
           </button>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-          <a href="/about" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:underline">about</a>
-          <% if user_signed_in? %>
-            <%= link_to "Profile", edit_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-            <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-          <% else %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-            <%= link_to "Login", new_user_session_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-          <% end %>
-          <%# <a href="/stats" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:underline">stats</a> %>
-        </div>
+          <a href="/about" class="text-sm font-semibold leading-6 content-center text-gray-900 hover:text-indigo-600 hover:underline">about</a>
+          <div class="hidden lg:flex lg:gap-x-4">
+            <% if user_signed_in? %>
+              <%= button_to "profile", edit_user_registration_path, class: "relative -ml-px inline-flex leading-6 items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white" %>
+              <%= button_to "log out", destroy_user_session_path, method: :delete, class: "relative -ml-px inline-flex leading-6 items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-white ring-2 ring-inset ring-black bg-black hover:bg-white hover:text-indigo-600" %>
+            <% else %>
+              <%= button_to "login", new_user_session_path, class: "relative -ml-px inline-flex leading-6 items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white" %>
+              <%= button_to "sign up", new_user_registration_path, class: "relative -ml-px inline-flex leading-6 items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-white ring-2 ring-inset ring-black bg-black hover:bg-white hover:text-indigo-600" %>
+            <% end %>
+            <%# <a href="/stats" class="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600 hover:underline">stats</a> %>
+          </div>
       </nav>
       <!-- Mobile menu, show/hide based on menu open state. -->
       <div id="mobile-menu" class="lg:hidden" role="dialog" aria-modal="true" data-menu-target="menu">
@@ -68,15 +69,17 @@
           </div>
           <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-gray-500/10">
-              <div class="space-y-2 py-6">
-                <a href="/about" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">about</a>
-                    <% if user_signed_in? %>
-                      <%= link_to "Profile", edit_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-                      <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-                    <% else %>
-                      <%= link_to "Sign Up", new_user_registration_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-                      <%= link_to "Login", new_user_session_path, class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600" %>
-                    <% end %>
+              <div class="space-y-2 py-6 divide-y-2 divide-black">
+                <a href="/about" class="pb-8 -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-indigo-50 hover:text-indigo-600">about</a>
+                <div class="flex flex-col gap-y-4 pt-8">
+                <% if user_signed_in? %>
+                  <%= button_to "profile", edit_user_registration_path, class: "block w-full leading-6 items-center px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white" %>
+                  <%= button_to "log out", destroy_user_session_path, method: :delete, class: "block w-full leading-6 items-center px-3 py-2 text-sm font-semibold text-white ring-2 ring-inset ring-black bg-black hover:bg-indigo-600 hover:text-white" %>
+                <% else %>
+                  <%= button_to "login", new_user_session_path, class: "block w-full leading-6 items-center px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white" %>
+                  <%= button_to "sign up", new_user_registration_path, class: "block w-full leading-6 items-center px-3 py-2 text-sm font-semibold text-white ring-2 ring-inset ring-black bg-black hover:bg-indigo-600 hover:text-white" %>
+                <% end %>
+                </div>
                 <%# <a href="/stats" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">stats</a> %>
               </div>
             </div>
