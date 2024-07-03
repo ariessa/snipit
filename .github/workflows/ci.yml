@@ -17,7 +17,7 @@ jobs:
         env:
           POSTGRES_USER: ${{ vars.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ vars.POSTGRES_PASSWORD }}
-        port: ["${{ vars.POSTGRES_PORT }}:${{ vars.POSTGRES_PORT }}"]
+        ports: ["${{ vars.POSTGRES_PORT }}:${{ vars.POSTGRES_PORT }}"]
 
     steps:
       - uses: actions/checkout@v4
