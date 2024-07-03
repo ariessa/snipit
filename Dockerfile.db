@@ -1,1 +1,7 @@
 FROM postgres:14
+
+# Copy the initialization script
+COPY ./scripts/init.sh /docker-entrypoint-initdb.d/init.sh
+
+# Ensure the script has executable permissions
+RUN chmod +x /docker-entrypoint-initdb.d/init.sh
