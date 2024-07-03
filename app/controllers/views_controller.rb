@@ -22,10 +22,10 @@ class ViewsController < ApplicationController
           data = JSON.parse(response.body)
           "#{data['city']}, #{data['region']}, #{data['country']}"
         else
-          "Unknown Location"
+          "unknown Location"
         end
       rescue => e
         Rails.logger.error("Error fetching geolocation: #{e.message}")
-        "Unknown Location"
+        "unknown Location"
       end
 end

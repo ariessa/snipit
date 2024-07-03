@@ -23,4 +23,8 @@ class Link < ApplicationRecord
     def editable_by?(user)
         user_id? && (user_id == user&.id)
     end
+
+    def views_by_date_range(start_date, end_date)
+        views.where(created_at: start_date..end_date)
+    end
 end

@@ -28,22 +28,22 @@
 
 <% if @link.views_count > 0 %>
     <div class="pt-4 gap-y-4">
-            <h2 class="text-lg font-semibold">All Views</h2>
-            <% @link.views.each do |view| %>
-                <div class="flex flex-col border-2 border-black p-4 gap-y-2 mb-4">
-                    <div class="flex flex gap-x-2 justify-between items-center">
-                        <%= tag.p "ip address", class: "text-xs font-semibold" %>
-                        <%= tag.p view.ip, class: "text-xs font-base" %>
-                    </div>
-                    <div class="flex flex gap-x-2 justify-between items-center">
-                        <%= tag.p "geolocation", class: "text-xs font-semibold" %>
-                        <%= tag.p view.geolocation, class: "text-xs font-base" %>
-                    </div>
-                    <div class="flex flex gap-x-2 justify-between items-center">
-                        <%= tag.p "timestamp", class: "text-xs font-semibold" %>
-                        <%= tag.p view.timestamp, class: "text-xs font-base" %>
-                    </div>
+        <h2 class="text-lg font-semibold">All Views</h2>
+        <% @link.views.each do |view| %>
+            <div class="flex flex-col border-2 border-black p-4 gap-y-2 mb-4">
+                <div class="flex flex gap-x-2 justify-between items-center">
+                    <%= tag.p "ip address", class: "text-xs font-semibold" %>
+                    <%= tag.p view.ip, class: "text-xs font-base" %>
                 </div>
-            <% end %>
+                <div class="flex flex gap-x-2 justify-between items-center">
+                    <%= tag.p "geolocation", class: "text-xs font-semibold" %>
+                    <%= tag.p view.geolocation, class: "text-xs font-base" %>
+                </div>
+                <div class="flex flex gap-x-2 justify-between items-center">
+                    <%= tag.p "timestamp", class: "text-xs font-semibold" %>
+                    <%= tag.p view.timestamp, class: "text-xs font-base" %>
+                </div>
+            </div>
+        <% end %>
     </div>
 <% end %>

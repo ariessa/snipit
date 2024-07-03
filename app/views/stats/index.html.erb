@@ -1,0 +1,39 @@
+<div class="w-full items-center">
+  <h1>stats.</h1>
+    <div class="">
+        <% @links.each do |link| %>
+            <div class="mt-0 pt-0 flex flex-col border-2 border-black p-4 gap-y-2 mb-8 md:mb-4">
+                <div class="flex flex-col md:flex-row-reverse md:items-center md:justify-between gap-y-2 md:gap-x-4">
+                    <%= link_to "snip ##{link.id}", link, class: "my-4 no-underline text-sm text-gray-400 hover:text-indigo-600" %>
+                    <%= tag.p truncate(link.title, length: 60), class: "text-base py-0 md:py-2 font-semibold no-underline" %>
+                </div>
+                
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-2 md:gap-x-4">
+                    <%= tag.p pluralize(link.views_count, "view"), class: "my-4 no-underline text-sm font-semibold text-gray-900" %>
+                </div>
+                <% tag.p "views in the Last Month", class: "text-base font-medium" %%>
+                <% views = link.views_by_date_range(@start_date, @end_date) %>
+                <% if views.any? %>
+                    <% link.views.each do |view| %>
+                        <div class="flex flex-col border-2 border-black text-white p-4 gap-y-2 mb-4">
+                            <div class="flex flex-row-reverse gap-x-2 justify-between items-center">
+                                <%= tag.p "ip address", class: "text-xs font-semibold text-gray-400" %>
+                                <%= tag.p view.ip, class: "text-xs font-semibold  text-gray-900" %>
+                            </div>
+                            <div class="flex flex-row-reverse gap-x-2 justify-between items-center">
+                                <%= tag.p "geolocation", class: "text-xs font-semibold text-gray-400" %>
+                                <%= tag.p view.geolocation, class: "text-xs font-semibold  text-gray-900" %>
+                            </div>
+                            <div class="flex flex-row-reverse gap-x-2 justify-between items-center">
+                                <%= tag.p "timestamp", class: "text-xs font-semibold text-gray-400" %>
+                                <%= tag.p view.timestamp, class: "text-xs font-semibold text-gray-900" %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% else %>
+                <p>No views recorded in the last month.</p>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+</div>
