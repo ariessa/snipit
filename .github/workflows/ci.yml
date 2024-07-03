@@ -1,0 +1,35 @@
+name: Tests
+
+on: 
+  pull_request:
+    branches:
+      - "*"
+  push:
+    branches:
+      - "main"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: ${{ vars.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ vars.POSTGRES_PASSWORD }}
+        port: ["${{ vars.POSTGRES_PORT }}:${{ vars.POSTGRES_PORT }}"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run tests
+        env:
+          DATABASE_URL: "postgres://${{ vars.POSTGRES_USER }}:${{ vars.POSTGRES_PASSWORD }}@${{ vars.POSTGRES_HOST }}:{{ vars.POSTGRES_PORT }}/{{ vars.POSTGRES_DB }}"
+          RAILS_ENV: test
+        run: |
+          bin/rails test:prepare
+          bin/rails db:test:prepare
+          bin/rails test
