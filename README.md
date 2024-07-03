@@ -7,21 +7,40 @@ Snipit (stylised as snipIt) is the ultimate tool for transforming those long, cl
 ## Table of Contents
 
 - [User Interfaces](#user-interfaces)
+- [Tools and Technologies Used](#tools-and-technologies-used)
 - [Features](#features)
 - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
+  - [Prerequisites for production](#prerequisites-for-production)
   - [Setup](#setup)
+    - [Development](#development)
+    - [Production](#production)
 - [Usage](#usage)
   - [Run the application](#run-the-application)
+    - [Development](#development-1)
+    - [Production](#production-1)
   - [Run the tests](#run-the-tests)
+    - [Development](#development-2)
+    - [Production](#production-2)
+  - [Stop the application](#stop-the-application)
+    - [Development](#development-3)
+    - [Production](#production-3)
 - [Diagrams](#diagrams)
-  - [Arhictecture Diagram](#architecture-diagram)
+  - [Architecture Diagram](#architecture-diagram)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
-  - [Low Fidelity Wireframes](#low-fidelity-wireframes)
 
 <br />
 
-## Technologies Used
+## User Interfaces
+
+<img src="/screenshots/homepage.png"/>
+
+<img src="/screenshots/homepage_with_short_urls.png"/>
+
+<img src="/screenshots/about_page.png"/>
+
+<br />
+
+## Tools and Technologies Used
 
 - Ruby
 - Rails
@@ -37,33 +56,16 @@ Snipit (stylised as snipIt) is the ultimate tool for transforming those long, cl
 - TailwindCSS
 - Make
 
-## User Interfaces
-
-Homepage
-<img src=""/>
-
-<br />
-
-About Page
-<img src=""/>
-
-<br />
-
 ## Features
 
-- Homepage
-  - Convert long URL into short URL
-  - Short URL can publicly shared and accessed
-  - A Short URL path can be in any URI pattern, but should not exceed a maximum of 15 characters
-  - Multiple Short URLs can share the same Target URL
-  - Can get usage report for the application such as the number of clicks, originating geolocation and timestamp of each visit to a Short URL
-- About page
+- Convert a target URL into a short URL that can be publicly shared and accessed
+- Provide a usage report for the application such as the number of clicks, originating geolocation and timestamp of each visit to a short URL
 
 <br />
 
 ## Installation
 
-### Prerequisites
+### Prerequisites for production
 
 Before starting, make sure you have the following installed:
 
@@ -83,6 +85,32 @@ git clone https://github.com/ariessa/snipit.git
 cd snipit
 ```
 
+<br />
+
+#### Development
+
+Create file `.env` based on file `.env.example`
+
+```bash
+cp .env.example .env
+```
+
+Populate values accordingly
+
+<br />
+
+#### Production
+
+Create file `.env.prod` based on file `.env.example`
+
+```bash
+cp .env.example .env.prod
+```
+
+Populate values accordingly
+
+<br />
+
 ## Usage
 
 ### Run the application
@@ -94,6 +122,8 @@ Create and migrate server
 ```bash
 rails db:prepare
 ```
+
+<br />
 
 Start the server
 
@@ -110,6 +140,8 @@ Build and run the containers
 ```bash
 make up
 ```
+
+<br />
 
 Open your web browser and navigate to `https://localhost:3000`.
 
@@ -151,8 +183,6 @@ make down
 
 ## Diagrams
 
-<br />
-
 ### Architecture Diagram
 
 <img src="/diagrams/architecture_diagram.png"/>
@@ -161,10 +191,4 @@ make down
 
 ### Entity Relationship Diagram
 
-<img src=""/>
-
-<br />
-
-### Low Fidelity Wireframes
-
-<img src=""/>
+<img src="/diagrams/entity_relationship_diagram.png"/>
