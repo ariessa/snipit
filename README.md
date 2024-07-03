@@ -1,6 +1,6 @@
-# ✂️ snipIt
+# ✂️ Snipit
 
-snipIt is the ultimate tool for transforming those long, clunky URLs into short, snazzy links that are super easy to share. no more struggling with endless web addresses – just snip, snap, and share the url!
+Snipit (stylised as snipIt) is the ultimate tool for transforming those long, clunky URLs into short, snazzy links that are super easy to share. no more struggling with endless web addresses – just snip, snap, and share the url!
 
 <br />
 
@@ -78,14 +78,32 @@ Before starting, make sure you have the following installed:
 Clone the repository
 
 ```bash
-git clone https://github.com/ariessa/snipIt.git
+git clone https://github.com/ariessa/snipit.git
 
-cd snipIt
+cd snipit
 ```
 
 ## Usage
 
 ### Run the application
+
+#### Development
+
+Create and migrate server
+
+```bash
+rails db:prepare
+```
+
+Start the server
+
+```bash
+bin/dev
+```
+
+<br />
+
+#### Production
 
 Build and run the containers
 
@@ -99,23 +117,37 @@ Open your web browser and navigate to `https://localhost:3000`.
 
 ### Run the tests
 
-```bash
+#### Development
 
+```bash
+rails test
 ```
 
 <br />
 
-Sample output
+#### Production
 
-<img src=""/>
+```bash
+make tests
+```
 
 <br />
 
 ### Stop the application
 
+#### Development
+
+Hit `Ctrl + C`
+
+<br />
+
+#### Production
+
 ```bash
 make down
 ```
+
+<br />
 
 ## Diagrams
 
