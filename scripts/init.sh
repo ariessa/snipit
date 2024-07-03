@@ -31,5 +31,7 @@ GRANT ALL PRIVILEGES ON DATABASE ${POSTGRES_DB} TO ${POSTGRES_USER};
 ALTER DATABASE ${POSTGRES_DB} OWNER TO ${POSTGRES_USER};
 EOF
 
+chmod +x /docker-entrypoint-initdb.d/init.sql
+
 # Execute init.sql with psql
 psql -U postgres -d postgres -v ON_ERROR_STOP=1 -f /docker-entrypoint-initdb.d/init.sql

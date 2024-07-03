@@ -6,6 +6,14 @@ docker kill $(docker ps -q) || true
 # Remove all Docker containers
 docker rm $(docker ps -a -q) || true
 
+# # List all Docker images and filter out redis and postgres images
+# images=$(docker images --format '{{.Repository}}:{{.Tag}}' | grep -vE 'redis|postgres')
+
+# # Remove all images except redis and postgres
+# for image in $images; do
+#   docker rmi $image || true
+# done
+
 # Remove all Docker images
 docker rmi $(docker images -q) || true
 
