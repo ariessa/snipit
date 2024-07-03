@@ -3,13 +3,13 @@ require "test_helper"
 class UsersTest < ActionDispatch::IntegrationTest
     test "guest user" do
         get links_path
-        assert_select "a", "Sign Up"
-        assert_select "a", "Login"
+        assert_select "button", "sign up"
+        assert_select "button", "login"
     end
     test "user can be logged in" do
         sign_in users(:one)
         get links_path
-        assert_select "a", "Profile"
-        assert_select "button", "Log Out"
+        assert_select "button", "profile"
+        assert_select "button", "log out"
     end
 end
