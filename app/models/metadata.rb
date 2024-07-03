@@ -21,7 +21,7 @@ class Metadata
     end
 
     def title
-        doc.at_css("title")&.text
+        doc.at_css("title")&.text || meta_tag_content("og:title")
     end
 
     def description
