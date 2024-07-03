@@ -65,12 +65,6 @@ Rails.application.configure do
   # Cause the tailwinds engine to rebuild style sheet
   config.assets.debug = true
 
-  # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
-
-  # Annotate rendered view with file names.
-  # config.action_view.annotate_rendered_view_with_filenames = true
-
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
@@ -80,4 +74,9 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sucker_punch
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.file_watcher = ActiveSupport::FileUpdateChecker
+
+  # Configure Redis cache store
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'] || 'redis://localhost:6379/0' }
 end

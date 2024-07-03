@@ -1,6 +1,6 @@
 development:
   adapter: redis
-  url: redis://redis:6379/1
+  url: redis://localhost:6379/1
 
 test:
   adapter: async
@@ -8,4 +8,4 @@ test:
 production:
   adapter: redis
   url: redis://redis:6379/1
-  channel_prefix: snipit_db
+  channel_prefix: snipit_prod
