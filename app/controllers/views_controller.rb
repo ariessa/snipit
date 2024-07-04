@@ -6,7 +6,9 @@ class ViewsController < ApplicationController
     end
 
     def show
-        geolocation_data = geocode_ip(request.ip)
+        Rails.logger.info "Request.ip: #{request.ip}"
+        Rails.logger.info "Request.ip remote: #{request.remote_ip}"
+        geolocation_data = geocode_ip(request.remote_ip)
 
         @link.views.create(
             ip: request.ip,
