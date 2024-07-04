@@ -8,7 +8,7 @@
                 <%= link_to pluralize(link.views_count, "view"), link, class: "px-2 py-1 border-2 border-black no-underline text-xs hover:bg-indigo-600 hover:text-white" %>
             </div>
             <div class="flex w-full pt-1">
-                <%= tag.p truncate(link.title, length: 60), class: "border-2 border-black text-sm p-2 flex-1" %>
+                <%= tag.p truncate(link.title), class: "border-2 border-black text-sm p-2 flex-1" %>
                 <button class="relative -ml-px inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white"
                     data-controller="clipboard" data-clipboard-text="<%= link.title %>">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -22,7 +22,7 @@
         <div class="flex flex-col pb-2">
             <%= tag.p "short url", class: "text-xs font-normal" %>
             <div class="flex w-full pt-1">
-                <%= tag.p truncate(view_url(link), length: 60), class: "border-2 border-black text-sm p-2 flex-1" %>
+                <%= tag.p truncate(view_url(link)), class: "border-2 border-black text-sm p-2 flex-1" %>
                 <button class="relative -ml-px inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white"
                     data-controller="clipboard" data-clipboard-text="<%= view_url(link) %>">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
@@ -36,7 +36,7 @@
         <div class="flex flex-col">
             <%= tag.p "long url", class: "text-xs font-normal" %>
             <div class="flex w-full pt-1">
-                <%= tag.p truncate(link.url, length: 60), class: "border-2 border-black text-sm p-2 flex-1" %>
+                <%= tag.p truncate(link.url), class: "border-2 border-black text-sm p-2 flex-1" %>
                 <button class="relative -ml-px inline-flex items-center gap-x-1.5 px-3 py-2 text-sm font-semibold text-gray-900 ring-2 ring-inset ring-black hover:bg-indigo-600 hover:text-white"
                     data-controller="clipboard" data-clipboard-text="<%= link.url %>">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
