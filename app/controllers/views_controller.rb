@@ -6,8 +6,6 @@ class ViewsController < ApplicationController
     end
 
     def show
-        Rails.logger.info "test: #{request.env['ipinfo'].city}"
-
         @link.views.create(
             ip: request.ip,
             user_agent: request.user_agent,
@@ -20,9 +18,10 @@ class ViewsController < ApplicationController
     def format_geolocation(data)
       return "unknown location" unless data
   
-      city = data.city
-      region = data.region
-      country_name = data.country_name
+      city = data.city if data.respond_to?(:city)
+      region = data.region if data.respond_to?(:region)
+      country_name = data.country if data.respond_to?(:country)
+
       [city, region, country_name].compact.join(", ")
     end
 end
