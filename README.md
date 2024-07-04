@@ -32,11 +32,17 @@ Snipit (stylised as snipIt) is the ultimate tool for transforming those long, cl
 
 ## User Interfaces
 
-<img src="/screenshots/homepage.png"/>
+<img src="/screenshots/home_page.png"/>
 
-<img src="/screenshots/homepage_with_short_urls.png"/>
+<img src="/screenshots/home_page_with_short_urls.png"/>
+
+<img src="/screenshots/link_page_details.png"/>
+
+<img src="/screenshots/home_page_all_views.png"/>
 
 <img src="/screenshots/about_page.png"/>
+
+<img src="/screenshots/stats_page.png"/>
 
 <br />
 
@@ -89,25 +95,21 @@ cd snipit
 
 #### Development
 
-Create file `.env` based on file `.env.example`
+Create file `.env` based on file `.env.example` and populate values accordingly
 
 ```bash
 cp .env.example .env
 ```
 
-Populate values accordingly
-
 <br />
 
 #### Production
 
-Create file `.env.prod` based on file `.env.example`
+Create file `.env.prod` based on file `.env.example` and populate values accordingly
 
 ```bash
 cp .env.example .env.prod
 ```
-
-Populate values accordingly
 
 <br />
 
