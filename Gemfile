@@ -75,4 +75,4 @@ gem "sucker_punch", "~> 3.2"
 gem 'redis', '~> 4.0'
 gem "devise", "~> 4.9"
 gem "pagy", "~> 8.6"
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'ipinfo-rails'

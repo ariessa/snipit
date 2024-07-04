@@ -6,32 +6,23 @@ class ViewsController < ApplicationController
     end
 
     def show
-        Rails.logger.info "Request.ip: #{request.ip}"
-        Rails.logger.info "Request.ip remote: #{request.remote_ip}"
-        geolocation_data = geocode_ip(request.remote_ip)
+        Rails.logger.info "test: #{request.env['ipinfo'].city}"
 
         @link.views.create(
             ip: request.ip,
             user_agent: request.user_agent,
-            geolocation: format_geolocation(geolocation_data),
+            geolocation: format_geolocation(request.env['ipinfo']),
             timestamp: Time.current
         )
         redirect_to @link.url, allow_other_host: true
-    end
-
-    def geocode_ip(ip)
-      Geocoder.search(ip).first
-    rescue => e
-      Rails.logger.error "Geocoding API error: #{e.message}"
-      nil
     end
   
     def format_geolocation(data)
       return "unknown location" unless data
   
       city = data.city
-      state = data.state
-      country = data.country
-      [city, state, country].compact.join(", ")
+      region = data.region
+      country_name = data.country_name
+      [city, region, country_name].compact.join(", ")
     end
 end
