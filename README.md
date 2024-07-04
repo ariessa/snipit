@@ -38,7 +38,7 @@ Snipit (stylised as snipIt) is the ultimate tool for transforming those long, cl
 
 <img src="/screenshots/link_page_details.png"/>
 
-<img src="/screenshots/home_page_all_views.png"/>
+<img src="/screenshots/link_page_all_views.png"/>
 
 <img src="/screenshots/about_page.png"/>
 
