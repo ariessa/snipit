@@ -6,7 +6,8 @@ class ViewsController < ApplicationController
     end
 
     def show
-        geolocation = fetch_geolocation(request.ip)
+        location_data = Geocoder.search(request.remote_ip).first
+        geolocation = "#{location_data.city}, #{location_data.state}, #{location_data.country}"
         @link.views.create(
             ip: request.ip,
             user_agent: request.user_agent,
@@ -15,17 +16,4 @@ class ViewsController < ApplicationController
         )
         redirect_to @link.url, allow_other_host: true
     end
-
-    def fetch_geolocation(ip)
-        response = HTTParty.get("https://ipinfo.io/#{ip}/json")
-        if response.code == 200
-          data = JSON.parse(response.body)
-          "#{data['city']}, #{data['region']}, #{data['country']}"
-        else
-          "unknown Location"
-        end
-      rescue => e
-        Rails.logger.error("Error fetching geolocation: #{e.message}")
-        "unknown Location"
-      end
 end

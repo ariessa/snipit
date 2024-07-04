@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_03_194339) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_03_235835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_03_194339) do
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.jsonb "geolocation"
+    t.string "geolocation"
     t.datetime "timestamp"
     t.index ["link_id"], name: "index_views_on_link_id"
   end
