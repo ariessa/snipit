@@ -2,8 +2,9 @@ class Link < ApplicationRecord
     belongs_to :user, optional: true
     has_many :views, dependent: :destroy
     scope :recent_first, -> { order(created_at: :desc) }
-    validates :url, presence: true, format: { with: URI::regexp(%w[http https]), message: 'must be a valid URL' }
-    validate :url_exists
+    validates :url, presence: true
+    validate :url_format, if: -> { url.present? }
+    validate :url_exists, if: -> { url.present? }
 
     after_save_commit if: :url_previously_changed? do
         MetadataJob.perform_async(to_param)
@@ -29,6 +30,8 @@ class Link < ApplicationRecord
         views.where(created_at: start_date..end_date)
     end
 
+    private
+
     def url_exists
         return unless url.present?
     
@@ -44,5 +47,20 @@ class Link < ApplicationRecord
         rescue StandardError => e
           errors.add(:url, "could not be validated: #{e.message}")
         end
-      end
+    end
+
+    def url_format
+        uri = URI.parse(url)
+        return if uri.scheme.blank? || uri.host.blank?
+      
+        unless uri.scheme.start_with?("http")
+            errors.add(:url, "must be HTTP or HTTPS")
+        end
+
+        if uri.host.end_with?(ENV['BASE_HOST'])
+            errors.add(:url, "must not be from #{ENV['BASE_HOST']} or its subdomains")
+        end
+      rescue URI::InvalidURIError
+        errors.add(:url, "is invalid")
+    end   
 end
