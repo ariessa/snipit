@@ -45,6 +45,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - IPINFO_API_KEY=${IPINFO_API_KEY}
       - REDIS_URL=${REDIS_URL}
+      - BASE_HOST=${BASE_HOST}
 
 volumes:
   db:
