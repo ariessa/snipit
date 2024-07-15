@@ -41,7 +41,7 @@ class Link < ApplicationRecord
     
         begin
           response = http.head(url.request_uri)
-          unless response.code.to_i == 200
+          unless response.code.to_i == 200 || response.code.to_i == 302
             errors.add(:url, "must be reachable (HTTP status #{response.code})")
           end
         rescue StandardError => e
