@@ -2,7 +2,7 @@ class Link < ApplicationRecord
     belongs_to :user, optional: true
     has_many :views, dependent: :destroy
     scope :recent_first, -> { order(created_at: :desc) }
-    validates :url, presence: true
+    validates :url, presence: true, format: { with: URI::regexp(%w[http https]), message: 'must be a valid URL' }
 
     after_save_commit if: :url_previously_changed? do
         MetadataJob.perform_async(to_param)
